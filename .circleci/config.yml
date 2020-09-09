@@ -8,9 +8,9 @@ orbs:
 jobs:
   print_hello:
     docker:
-      -image: circleci/node:13.8.0
+      - image: circleci/node:13.8.0
     steps:
-      -run:
+      - run:
         name: Print Hello
         command:  |
           print "hello"
@@ -18,9 +18,9 @@ jobs:
     requires: 
      - print_hello 
     docker:
-      -image: circleci/node:13.8.0
+      - image: circleci/node:13.8.0
     steps:
-      -run:
+      - run:
         name: Print World
         command:  |
           print "world"
