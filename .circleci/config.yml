@@ -10,12 +10,15 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - checkout
       - run: print "hello"
   print_world: 
-    requires: print_hello 
+    requires: 
+      - print_hello 
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - checkout
       - run: print "world"
 workflows:
   # Name the workflow "welcome"
