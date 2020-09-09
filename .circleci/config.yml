@@ -12,9 +12,7 @@ jobs:
     steps:
       - checkout
       - run: print "hello"
-  print_world: 
-    requires: 
-      - print_hello 
+  print_world:  
     docker:
       - image: circleci/node:13.8.0
     steps:
@@ -28,3 +26,5 @@ workflows:
       - welcome/run
       - print_hello
       - print_world
+          requires:
+            - print_hello
