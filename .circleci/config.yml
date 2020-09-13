@@ -55,7 +55,7 @@ jobs:
   print_workflow_id:
     docker: 
       - image: circleci/node:13.8.0
-    -steps:
+    steps:
       - print_pipeline_id
 workflows:
   # Name the workflow "welcome"
