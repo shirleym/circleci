@@ -26,8 +26,8 @@ jobs:
       - run: mkdir -p workspace
       - run: echo "Hola!!! :) :) :)" > workspace/output.txt
       - persist_to_workspace:
-        root: workspace
-        paths:
+         root: workspace
+         paths:
           - output.txt
   print_output_file:
     docker:
