@@ -4,6 +4,13 @@ version: 2.1
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
+
+#Commands section
+commands:
+  print_pipeline_id:
+    description: "Print workflow ID"
+    steps:
+      - run: echo $CIRCLE_WORKFLOW_ID
 # Orchestrate or schedule a set of jobs
 jobs:
   print_hello:
@@ -45,6 +52,11 @@ jobs:
           name: "echo an env var that is part of our project"
           command: |
             echo $myname # this env var must be swt within the project
+  print_workflow_id:
+    docker: 
+      - image: circleci/node:13.8.0
+    -steps:
+      - print_pipeline_id
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -60,3 +72,4 @@ workflows:
       - print_output_file:
           requires:
             - save_hello_world_output
+      - print_workflow_id
